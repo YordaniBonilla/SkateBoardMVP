@@ -1,22 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import List from './components/List.jsx';
+import TrickList from './components/TrickList.jsx';
+import AddToList from './components/AddToList.jsx';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      items: []
-    }
-  }
-
+     list:[]
+  };
+};
+//search how to use componentDidMount
   componentDidMount() {
     $.ajax({
-      url: '/items', 
+      type: 'POST',
+      url: '/',
+      data: '',
       success: (data) => {
         this.setState({
-          items: data
+          list: data
         })
       },
       error: (err) => {
@@ -25,12 +28,32 @@ class App extends React.Component {
     });
   }
 
-  render () {
-    return (<div>
-      <h1>Item List</h1>
-      <List items={this.state.items}/>
-    </div>)
+  
+
+
+  getData(){
+      this.setState({list: data });
+    }
+    
+    
+  
+
+  componentDidMount(){
+    this.getData();
   }
+  
+
+  render() {
+     return (
+    <div>
+      <h1>Skateboarding Vids</h1>
+      <TrickList list={props.state.list}/>
+      <AddToList />
+      <SearchBox/>
+    </div>
+    );
+  };
+   
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));

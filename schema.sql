@@ -1,15 +1,15 @@
-DROP DATABASE IF EXISTS test;
+DROP DATABASE IF EXISTS sk8;
 
-CREATE DATABASE test;
+CREATE DATABASE sk8;
 
-USE test;
+USE sk8;
 
-CREATE TABLE items (
+CREATE TABLE Tricks (
   id int NOT NULL AUTO_INCREMENT,
-  quantity integer NOT NULL,
-  description varchar(50) NOT NULL,
+  trick varchar(20) NOT NULL,
+  redirect varchar(50) NOT NULL,
   PRIMARY KEY (ID)
-);
+);      
 
 /*  Execute this file from the command line by typing:
  *    mysql -u root < server/schema.sql

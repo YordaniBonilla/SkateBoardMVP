@@ -1,14 +1,25 @@
-var mysql = require('mysql');
+const mysql = require('mysql');
 
-var connection = mysql.createConnection({
+const connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
-  password : 'FILL_ME_IN',
-  database : 'test'
+  password : 'Holacode',
+  database : 'sk8'
+});
+//for terminal
+
+connection.connect(err => {
+  (err)? console.log(err+'+++++++++++++++//////////'):
+  console.log('connection********')
 });
 
-var selectAll = function(callback) {
-  connection.query('SELECT * FROM items', function(err, results, fields) {
+//require('../database-mysql/index.js') (app,connection)
+
+connection.query('SELECT 1', (err, rows) => {
+
+})
+const selectAll = function(callback) {
+  connection.query('SELECT * FROM sk8', function(err, results/*, fields*/) {
     if(err) {
       callback(err, null);
     } else {
