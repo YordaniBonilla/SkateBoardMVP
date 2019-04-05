@@ -8,17 +8,17 @@ module.exports = {
     filename: 'bundle.js',
     path: DIST_DIR
   },
-  resolve: {
-      extensions: ['.js', '.jsx']
-    },
   module : {
     loaders : [
       {
         test : /\.jsx?/,
+        //already tried to removed this to solve 
+        //Error
+        //You may need an appropriate loader to handle this file type.
         include : SRC_DIR,
         loader : 'babel-loader',      
         query: {
-          presets: ['react', 'es2015']
+          presets: ['react', 'env']
        }
       }
     ]

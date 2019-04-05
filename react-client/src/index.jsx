@@ -4,8 +4,8 @@ import $ from 'jquery';
 import TrickList from './components/TrickList.jsx';
 import AddToList from './components/AddToList.jsx';
 import AddUrl from './components/AddUrl.jsx';
-
-
+//import  from './dropdownmenu/Dropdown';
+//import registerServiceWorker from './registerServiceWorker';
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -51,3 +51,5 @@ getPost (){
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
+
+{/* registerServiceWorker(); */}

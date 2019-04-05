@@ -8,6 +8,7 @@ class AddToList extends React.Component {
 			Tricks: "",
     	
 		}
+		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleAlert = this.handleAlert.bind(this);
 		this.addTrick = this.addTrick.bind(this);
 		this.traverseToUrl = this.traverseToUrl.bind(this);
@@ -15,7 +16,7 @@ class AddToList extends React.Component {
 	}
 
 	addTrick(event) {
-      this.setState({Tricks: event.target.value})
+      this.setState({Tricks: event.target.value});
 	}
     
     handleChange(event) {
@@ -26,6 +27,13 @@ class AddToList extends React.Component {
     handleAlert(event) {
     alert('A url was added! Congratulations: ' + this.state.value);
     event.preventDefault();
+    }
+
+    handleSubmit(event) {
+    event.preventDefault();
+    
+    this.setState({ value: event.target.value });
+
     }
 
     traverseToUrl(event) {
@@ -42,9 +50,10 @@ class AddToList extends React.Component {
 
          <input 
           type='submit'
-          onChange={this.handleChange}  
+          //onChange={this.handleChange}  
           value='Save'
-          onClick={this.handleAlert} />
+          onClick={this.handleAlert}
+          onSubmit={this.handleSubmit} />
 
          <p>{ this.state.Tricks }</p>
 

@@ -12,17 +12,21 @@ class AddUrl extends Component {
     }
 
   
-
-   
+   //or this is where i make the post
+   componentDidMount() {
+     fetch('/users')
+     .then(res => res.json())
+   }
 
    handleChange(event) {
-    this.setState({value: event.target.value});
+    this.setState({Redirect: event.target.value});
   }          
-   
+   //here is where i think i should make the post to server
    handleSubmit(event) {
     event.preventDefault();
-    this.setState({ value: event.target.value });
-    alert('A trick was added! Congratulations: ' + this.state.value);
+    
+    this.setState({ Redirect: event.target.value });
+    //alert('A trick was added! Congratulations: ' + this.state.value);
   }
 
   handleAlert(event) {
