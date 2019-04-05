@@ -25,7 +25,7 @@ class AddToList extends React.Component {
     }   
     
     handleAlert(event) {
-    alert('A url was added! Congratulations: ' + this.state.value);
+    alert('A trick was added! Congratulations: ' + this.state.value);
     event.preventDefault();
     }
 

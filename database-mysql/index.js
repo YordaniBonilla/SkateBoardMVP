@@ -8,8 +8,13 @@ var connection = mysql.createConnection({
   database : 'sk8'
 });
 
+connection.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+});
+
 var selectAll = function(callback) {
-  connection.query('SELECT * FROM sk8', function(err, results) {
+  connection.query('SELECT * FROM Tricks', function(err, results) {
     if(err) {
       callback(err, null);
     } else {

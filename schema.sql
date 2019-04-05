@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS sk8;
+DROP DATABASE  sk8;
 
 CREATE DATABASE sk8;
 
@@ -14,3 +14,4 @@ CREATE TABLE Tricks (
 /*  Execute this file from the command line by typing:
  *    mysql -u root < server/schema.sql
  *  to create the database and the tables.*/
+INSERT INTO Tricks ( id, trick, redirect ) VALUES ( null, 'Sample data', 'Sample data' );

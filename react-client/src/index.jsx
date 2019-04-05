@@ -6,6 +6,8 @@ import AddToList from './components/AddToList.jsx';
 import AddUrl from './components/AddUrl.jsx';
 //import  from './dropdownmenu/Dropdown';
 //import registerServiceWorker from './registerServiceWorker';
+import axios from "axios";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -13,27 +15,42 @@ class App extends React.Component {
      list: [],
   };
   this.getPost = this.getPost.bind(this)
+  this.Post = this.getPost.bind(this)
 };
 //search how to use componentDidMount
 
   componentDidMount(){
-    console.log(this.state.list)
+    this.getPost();
   }
   
 
 getPost (){
-    $.ajax({
-    url: '/urls',
-    method: 'GET',
-    success: (results) => {
-      this.setState({list:results});
-    },
-    error: (xhr, err) => {
-      console.log('err', err);
-      }
+  console.log('GetPost:');
+  // $.ajax({
+  // url: '/urls',
+  // method: 'GET',
+  // success: (results) => {
+  // this.setState({list:results});
+  // },
+  // error: (xhr, err) => {
+  // console.log('err', err);
+  // }
+
+  // })
+  axios.get('/urls')
+    .then(res  => {
+      console.log("respuesta endpoit :", res)
+   this.setState({list:res.data});
+      console.log("respuesta instate :", this.state.list)
 
     })
-  }
+  .catch(error => {
+    console.log("error endpoint :", error)
+  })
+}
+
+
+
     
   render() {
 
@@ -44,6 +61,7 @@ getPost (){
       <TrickList list={this.state.list} />
       <AddToList list={this.state.list} />
       <AddUrl list={this.state.list} />
+      <button onClick={this.getPost}>lets see</button>
     </div>
     );
   };
@@ -51,5 +69,3 @@ getPost (){
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
-
-{/* registerServiceWorker(); */}
