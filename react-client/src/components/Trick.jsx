@@ -1,9 +1,14 @@
 import React from 'react';
 
 const Trick = (props) => (
-  <div>
-    <li >key ={i} item={item}</li>
-  </div>
+
+     <div>
+     <option value="volvo">Volvo
+    {props.i}
+    {props.item}
+     </option>
+     </div>
+
 )
 
 export default Trick;
