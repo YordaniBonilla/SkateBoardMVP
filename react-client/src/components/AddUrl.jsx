@@ -13,10 +13,10 @@ class AddUrl extends Component {
 
   
    //or this is where i make the post
-   componentDidMount() {
-     fetch('/users')
-     .then(res => res.json())
-   }
+   //componentDidMount() {
+    // fetch('/users')
+    // .then(res => res.json())
+  // }
 
    handleChange(event) {
     this.setState({Redirect: event.target.value});

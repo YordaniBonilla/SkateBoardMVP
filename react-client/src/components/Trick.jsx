@@ -4,7 +4,7 @@ import React from 'react';
 const Trick = (props) => (
   <div>
   <ul>
-  <li>{key}{trickName}</li>
+  // <li >console.log({props.key}{props.trickName})</li>
   </ul>
   </div>
 )

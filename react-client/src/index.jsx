@@ -13,19 +13,36 @@ class App extends React.Component {
     super(props);
     this.state = { 
      list: [],
+     db:[]
   };
-  this.getPost = this.getPost.bind(this)
-  this.Post = this.getPost.bind(this)
+  //this.getPost = this.getPost.bind(this)
+  //this.Post = this.getPost.bind(this)
 };
 //search how to use componentDidMount
 
   componentDidMount(){
-    this.getPost();
-  }
-  
+     this.db = setInterval(() => {
+       axios.get('/urls')
+    .then(res  => {
+      console.log("respuesta endpoit :", res.data )
 
-getPost (){
-  console.log('GetPost:');
+   this.setState({db:res.data});
+      console.log('STATE:',this.state.db[0].id)
+
+    })
+    .catch(error => {
+    console.log("error endpoint :", error)
+   }),1000
+  }
+ );  //this.getPost();
+  
+}
+  
+  componentWillUnmount() {
+    clearInterval(this.db);
+  }
+//getPost (){
+  //console.log('GetPost:');
   // $.ajax({
   // url: '/urls',
   // method: 'GET',
@@ -37,17 +54,8 @@ getPost (){
   // }
 
   // })
-  axios.get('/urls')
-    .then(res  => {
-      console.log("respuesta endpoit :", res)
-   this.setState({list:res.data});
-      console.log("respuesta instate :", this.state.list)
-
-    })
-  .catch(error => {
-    console.log("error endpoint :", error)
-  })
-}
+ 
+//}
 
 
 
@@ -57,7 +65,9 @@ getPost (){
      return (
 
     <div>
+
       <h1>My Skate Vids</h1>
+      
       <TrickList list={this.state.list} />
       <AddToList list={this.state.list} />
       <AddUrl list={this.state.list} />
