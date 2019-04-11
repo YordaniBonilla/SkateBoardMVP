@@ -24,10 +24,6 @@ class AddToList extends React.Component {
     //this.setState({Redirect: event.target.value});
     }   
     
-    handleAlert(event) {
-    alert('A trick was added! Congratulations: ' + this.state.value);
-    event.preventDefault();
-    }
 
     handleSubmit(event) {
     event.preventDefault();
@@ -48,15 +44,8 @@ class AddToList extends React.Component {
          placeholder = 'Name of Trick to Add'
          onChange={this.handleChange} />
 
-         <input 
-          type='submit'
-          //onChange={this.handleChange}  
-          value='Save'
-          onClick={this.handleAlert}
-          onSubmit={this.handleSubmit} />
-
          <p>{ this.state.Tricks }</p>
-
+         
         </div>
 		);
 	}

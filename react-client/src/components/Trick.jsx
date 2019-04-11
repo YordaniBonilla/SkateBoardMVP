@@ -3,9 +3,9 @@ import React from 'react';
 
 const Trick = (props) => (
   <div>
-  <ul>
-  // <li >console.log({props.key}{props.trickName})</li>
-  </ul>
+  <ol>
+   <a href={props.redirect}><li >{props.trickName}</li></a>
+  </ol>
   </div>
 )
 export default Trick;

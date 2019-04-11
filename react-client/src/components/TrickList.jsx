@@ -3,13 +3,17 @@ import Trick from './Trick.jsx';
 
 const TrickList = (props) => (
   <div>
-  	{console.log("this is the obj" + props.list)}
     <h4> Click to Watch! </h4>
+{props.db.length > 1 ? `There are ${props.db.length} total tricks available` : `There is ${props.db.length} total trick`}
+{props.db.map(e => <Trick key={e.id} trickName={e.trick} redirect={e.redirect}/>)}
 
-    {props.list.length > 1 ? `There are ${props.list.length}total tricks available` : `There is {props.list.length} total trick`}  .
-    {props.list.map((e, i) => <Trick key ={props.i} trickName={props.e}/>)}
+
+
+
+
     
   </div>
 )
 
 export default TrickList;
+//{props.list.length > 1 ? `There are ${props.list.length}total tricks available` : `There is {props.list.length} total trick`}

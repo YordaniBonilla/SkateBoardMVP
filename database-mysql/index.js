@@ -1,7 +1,7 @@
 
-var mysql = require('mysql');
+let mysql = require('mysql');
 
-var connection = mysql.createConnection({
+let connection = mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
   password : 'Holacode',
@@ -13,7 +13,7 @@ connection.connect(function(err) {
   console.log("Connected!");
 });
 
-var selectAll = function(callback) {
+let selectAll = function(callback) {
   connection.query('SELECT * FROM Tricks', function(err, results) {
     if(err) {
       callback(err, null);
@@ -23,4 +23,20 @@ var selectAll = function(callback) {
   });
 };
 
+let addTrick = function(trick, redirect,cb) {
+  connection.query('INSERT INTO Tricks (trick, redirect) VALUES (?,?);',
+    [trick, redirect],
+     if(err, results) => {
+      if(err) {
+        throw err;
+      } else {
+        cb(results);
+      }
+     }
+    )
+};
+
+
+
 module.exports.selectAll = selectAll;
+module.exports.addTrick = addTrick;

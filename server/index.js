@@ -9,7 +9,7 @@ console.log('Server:', Tricks.selectAll);
 
 app.use(express.static(__dirname + '/../react-client/dist'));
 
-app.get('/urls', function(req, res){
+app.get('/info', function(req, res){
   Tricks.selectAll((err, results) => {
      if(err) {
        console.log('error connecting to the database', err);
@@ -20,6 +20,10 @@ app.get('/urls', function(req, res){
      }
    })
 })
+
+app.post('/info', function (req, res) {
+  res.send(addTrick);
+});
 
 app.listen(3000, function() {
   console.log('listening on port 3000!');
