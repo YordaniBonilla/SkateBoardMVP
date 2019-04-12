@@ -5,8 +5,6 @@ var Tricks = require('../database-mysql');
 
 var app = express();
 
-console.log('Server:', Tricks.selectAll);
-
 app.use(express.static(__dirname + '/../react-client/dist'));
 
 app.get('/info', function(req, res){
@@ -22,7 +20,7 @@ app.get('/info', function(req, res){
 })
 
 app.post('/info', function (req, res) {
-  res.send(addTrick);
+  res.send();
 });
 
 app.listen(3000, function() {

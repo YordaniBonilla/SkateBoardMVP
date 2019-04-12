@@ -1,51 +1,56 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 
-class AddToList extends React.Component {
+class AddToList extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			Tricks: "",
+            Redirect:""
     	
 		}
-		this.handleSubmit = this.handleSubmit.bind(this);
-		this.handleAlert = this.handleAlert.bind(this);
-		this.addTrick = this.addTrick.bind(this);
-		this.traverseToUrl = this.traverseToUrl.bind(this);
+		this.handTrickName = this.handleTrickName.bind(this);
+
 		this.handleChange = this.handleChange.bind(this);
+
+        this.handleUrl = this.handleUrl.bind(this);
 	}
 
-	addTrick(event) {
-      this.setState({Tricks: event.target.value});
-	}
-    
     handleChange(event) {
+
     this.setState({Tricks: event.target.value});
-    //this.setState({Redirect: event.target.value});
     }   
     
 
-    handleSubmit(event) {
+    handleTrickName(event) {
     event.preventDefault();
-    
-    this.setState({ value: event.target.value });
 
+    this.setState({ Tricks: event.target.value });
     }
 
-    traverseToUrl(event) {
-    this.setState({Tricks: event.target.value})
+    handleUrl(event) {
+    event.preventDefault();
+
+    this.setState({ Redirect: event.target.value });
     }
 
 	render() {
 		return (
         <div>
-         New:
+
          <input 
-         placeholder = 'Name of Trick to Add'
+         placeholder = 'Skate Trick'
+
          onChange={this.handleChange} />
 
-         <p>{ this.state.Tricks }</p>
-         
+         <input
+
+         placeholder = 'Trick URL'
+
+         onChange={this.handleChange}/>
+
+         <input type='submit' />
+
         </div>
 		);
 	}

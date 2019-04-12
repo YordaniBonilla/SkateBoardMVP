@@ -9,7 +9,7 @@ let connection = mysql.createConnection({
 });
 
 connection.connect(function(err) {
-  if (err) throw err;
+  if(err) throw err;
   console.log("Connected!");
 });
 
@@ -26,7 +26,7 @@ let selectAll = function(callback) {
 let addTrick = function(trick, redirect,cb) {
   connection.query('INSERT INTO Tricks (trick, redirect) VALUES (?,?);',
     [trick, redirect],
-     if(err, results) => {
+     (err, results) => {
       if(err) {
         throw err;
       } else {

@@ -4,24 +4,24 @@ import TrickList from './components/TrickList.jsx';
 
 import AddToList from './components/AddToList.jsx';
 
-import AddUrl from './components/AddUrl.jsx';
-
 import axios from "axios";
+
+
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = { 
-     db:[],
+    db:[],
   };
 };
 
   componentDidMount(){
-       axios.get('/info')
+    axios.get('/info')
     .then(res  => {
 
    this.setState({db:res.data});
-      console.log('After:',this.state.db)
+   console.log('After:',this.state.db)
     })
     .catch(error => {
     console.log("error endpoint :", error)
@@ -38,7 +38,6 @@ class App extends Component {
       
       <TrickList db={ this.state.db } />
       <AddToList db={ this.state.db } />
-      <AddUrl/>
     </div>
     );
   };
