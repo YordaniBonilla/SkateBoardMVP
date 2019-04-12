@@ -2,10 +2,10 @@ import React from 'react';
 
 
 const Trick = (props) => (
-  <form>
+  <div >
   <ol>
-   <a href={props.redirect}><li > {props.trickName}</li></a>
+   <a href={props.redirect}><li >{props.trickName}</li></a>
   </ol>
-  </form>
+  </div>
 )
 export default Trick;

@@ -20,7 +20,15 @@ app.get('/info', function(req, res){
 })
 
 app.post('/info', function (req, res) {
-  res.send();
+  Tricks.addTrick((err, results)=> {
+    if(err) {
+      throw err;
+      res.sendStatus(500);
+    } else {
+      res.status(200).json(results);
+      console.log(results);
+    }
+  })
 });
 
 app.listen(3000, function() {

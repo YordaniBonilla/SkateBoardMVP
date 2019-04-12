@@ -9,7 +9,6 @@ class AddToList extends Component {
             Redirect:""
     	
 		}
-		this.handTrickName = this.handleTrickName.bind(this);
 
 		this.handleChange = this.handleChange.bind(this);
 
@@ -22,16 +21,10 @@ class AddToList extends Component {
     }   
     
 
-    handleTrickName(event) {
+    handleSubmit(event) {
     event.preventDefault();
-
-    this.setState({ Tricks: event.target.value });
-    }
-
-    handleUrl(event) {
-    event.preventDefault();
-
     this.setState({ Redirect: event.target.value });
+    this.setState({ Tricks: event.target.value });
     }
 
 	render() {
@@ -49,7 +42,7 @@ class AddToList extends Component {
 
          onChange={this.handleChange}/>
 
-         <input type='submit' />
+         <input type='submit' onSubmit={this.} />
 
         </div>
 		);
