@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import styles from './AddToList.css'
 class AddToList extends Component {
 	constructor(props) {
 		super(props);
@@ -42,7 +42,7 @@ class AddToList extends Component {
 	render() {
 
 		return (
-        <form  onSubmit={this.handleSubmit} >
+        <form  className={styles.container}onSubmit={this.handleSubmit} >
 
          <input 
          name = 'trickName'

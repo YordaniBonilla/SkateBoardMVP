@@ -5,6 +5,7 @@ import TrickList from './components/TrickList.jsx';
 import AddToList from './components/AddToList.jsx';
 
 import axios from "axios";
+import styles from './index.css';
 
 class App extends Component {
   constructor(props) {
@@ -32,7 +33,7 @@ class App extends Component {
 
     <div>
 
-      <h1>My Skate Vids</h1>
+      <h1 className={styles.title} >My Skate Vids</h1>
       
       <TrickList db={ this.state.db } />
       <AddToList db={ this.state.db } />
