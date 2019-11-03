@@ -10,7 +10,7 @@
   "author": "Yordani Bonilla",
   "license": "ISC",
   "devDependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
     "babel-preset-env": "^1.7.0",
