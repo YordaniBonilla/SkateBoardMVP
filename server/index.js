@@ -31,6 +31,10 @@ app.post('/info', function (req, res) {
   })
 });
 
+app.post('/add', function(req, res) {
+  console.log(req.body);
+})
+
 app.listen(3000, function() {
   console.log('listening on port 3000!');
 });
