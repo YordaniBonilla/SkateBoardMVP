@@ -8,10 +8,12 @@ let connection = mysql.createConnection({
   database : 'sk8'
 });
 
-connection.connect(function(err) {
+let config = function(err) {
   if(err) throw err;
-  console.log("Connected!");
-});
+  console.log("Your mysql connection has been successful!");
+};
+
+connection.connect(config);
 
 let selectAll = function(callback) {
   connection.query('SELECT * FROM Tricks', function(err, results) {
@@ -24,19 +26,20 @@ let selectAll = function(callback) {
 };
 
 let addTrick = function(trick, redirect,cb) {
-  connection.query('INSERT INTO Tricks (trick, redirect) VALUES (?,?);',
-    [trick, redirect],
-     (err, results) => {
-      if(err) {
-        throw err;
+  let sql = 'INSERT INTO Tricks (trick, redirect) VALUES (?,?);';
+  connection.query(sql , [trick, redirect], (err, results) => {
+    if(err) {
+      throw err;
       } else {
-        cb(results);
+        cb(err,results);
       }
-     }
-    )
+    }
+  );
 };
 
 
 
-module.exports.selectAll = selectAll;
-module.exports.addTrick = addTrick;
+module.exports = {
+  selectAll,
+  addTrick,
+}

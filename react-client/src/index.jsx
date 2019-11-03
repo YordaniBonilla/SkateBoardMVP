@@ -15,11 +15,11 @@ class App extends Component {
 };
 
   componentDidMount(){
-    axios.get('/info')
+    axios.get('/links')
     .then(res  => {
 
    this.setState({db:res.data});
-   console.log('After:',this.state.db)
+   console.log('After:',this.state.db[0].id)
     })
     .catch(error => {
     console.log("error endpoint :", error)

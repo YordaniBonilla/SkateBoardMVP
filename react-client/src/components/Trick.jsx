@@ -1,10 +1,10 @@
 import React from 'react';
-
+import './Trick.css';
 
 const Trick = (props) => (
-  <div >
-  <ol>
-   <a href={props.redirect}><li >{props.trickName}</li></a>
+  <div>
+  <ol className="">
+   <a href={props.redirect}><li>{props.id}{props.trickName}</li></a>
   </ol>
   </div>
 )

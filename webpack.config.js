@@ -12,14 +12,25 @@ module.exports = {
     loaders : [
       {
         test : /\.jsx?/,
-        //already tried to removed this to solve 
-        //Error
-        //You may need an appropriate loader to handle this file type.
         include : SRC_DIR,
         loader : 'babel-loader',      
         query: {
           presets: ['react', 'env']
        }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          // style-loader
+          { loader: 'style-loader' },
+          // css-loader
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true
+            }
+          }
+        ]
       }
     ]
   }
