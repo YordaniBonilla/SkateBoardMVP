@@ -7,7 +7,7 @@ USE sk8;
 CREATE TABLE Tricks (
   id int NOT NULL AUTO_INCREMENT,
   trick varchar(20) NOT NULL,
-  redirect varchar(50) NOT NULL,
+  redirect varchar(100) NOT NULL,
   PRIMARY KEY (ID)
 );      
 

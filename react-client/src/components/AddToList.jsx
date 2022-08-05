@@ -23,6 +23,7 @@ class AddToList extends Component {
     handleSubmit(event) {
       event.preventDefault();
       this.sendUrl();
+      
     }
 
     sendUrl () {
@@ -42,7 +43,7 @@ class AddToList extends Component {
 	render() {
 
 		return (
-        <form  className={styles.container}onSubmit={this.handleSubmit} >
+        <form  className={styles.container} onSubmit={this.handleSubmit} >
 
          <input 
          name = 'trickName'

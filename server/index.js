@@ -21,7 +21,6 @@ app.get('/links', function(req, res){
        res.sendStatus(500);
      } else {
        res.status(200).json(results);
-       console.log(results);
      }
    })
 })
@@ -39,8 +38,9 @@ app.post('/add', function (req, res) {
 });
 
 app.post('/delete', function (req, res) {
-  const { trickName, urlName } = req.body;
-  dbQuery.addTrick(trickName, urlName,(err,results)=> {
+  const { id } = req.body;
+  console.log(req.body)
+  dbQuery.deleteTrick(id,(err,results)=> {
     if(err) {
       throw err;
       res.sendStatus(500);

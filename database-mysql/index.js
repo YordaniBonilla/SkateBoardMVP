@@ -37,9 +37,21 @@ let addTrick = function(trick, redirect,cb) {
   );
 };
 
+let deleteTrick = function(id,cb) {
+  let sql = 'DELETE FROM Tricks WHERE id = ?';
+  connection.query(sql ,[id],(err, results) => {
+    if(err) {
+      throw err;
+      } else {
+        cb(err,results);
+      }
+    }
+  );
+};
 
 
 module.exports = {
   selectAll,
   addTrick,
+  deleteTrick
 }

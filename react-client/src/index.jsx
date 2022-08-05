@@ -14,23 +14,29 @@ class App extends Component {
     db:[],
     
   };
+  this.deleteTrick = this.deleteTrick.bind(this);
   
 };
 
   componentDidMount(){
     axios.get('/links')
     .then(res  => {
-
    this.setState({db:res.data});
-   console.log('After:',this.state.db[0].id)
     })
     .catch(error => {
     console.log("error endpoint :", error)
    }),1000
   }
 
-  handleCallback(id){
-    console.log("callback iD yo id:" ,id)
+  deleteTrick(id){
+    axios.post('/delete', {
+      id: id,
+    }).then(res  => {
+      console.log(res)
+       })
+       .catch(error => {
+       console.log("error endpoint :", error)
+      }),1000;
     // this.setState(this.state.db.id)
   }
     
@@ -40,8 +46,8 @@ class App extends Component {
 
     <div>
 
-      <h1 className={styles.title} >My Skate Vids</h1>
-      <TrickList db={ this.state.db } removeTrick={this.handleCallback}/>
+      <h1 className={styles.title}  >My Skate Vids</h1>
+      <TrickList db={ this.state.db } deleteTrick={this.deleteTrick}/>
       <AddToList db={ this.state.db } />
       
     </div>
