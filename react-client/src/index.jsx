@@ -12,7 +12,9 @@ class App extends Component {
     super(props);
     this.state = { 
     db:[],
+    
   };
+  
 };
 
   componentDidMount(){
@@ -26,6 +28,11 @@ class App extends Component {
     console.log("error endpoint :", error)
    }),1000
   }
+
+  handleCallback(id){
+    console.log("callback iD yo id:" ,id)
+    // this.setState(this.state.db.id)
+  }
     
   render() {
 
@@ -34,9 +41,9 @@ class App extends Component {
     <div>
 
       <h1 className={styles.title} >My Skate Vids</h1>
-      
-      <TrickList db={ this.state.db } />
+      <TrickList db={ this.state.db } removeTrick={this.handleCallback}/>
       <AddToList db={ this.state.db } />
+      
     </div>
     );
   };

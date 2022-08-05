@@ -34,7 +34,18 @@ app.post('/add', function (req, res) {
       res.sendStatus(500);
     } else {
       res.status(200).json(results);
-      
+    }
+  })
+});
+
+app.post('/delete', function (req, res) {
+  const { trickName, urlName } = req.body;
+  dbQuery.addTrick(trickName, urlName,(err,results)=> {
+    if(err) {
+      throw err;
+      res.sendStatus(500);
+    } else {
+      res.status(200).json(results);
     }
   })
 });
