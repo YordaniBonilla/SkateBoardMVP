@@ -1,18 +1,13 @@
-DROP DATABASE IF EXISTS sk8;
+drop database if exists cloudy;
 
-CREATE DATABASE sk8;
+create database cloudy;
 
-USE sk8;
+use cloudy;
 
-CREATE TABLE Tricks (
-  id int NOT NULL AUTO_INCREMENT,
-  trick varchar(20) NOT NULL,
-  redirect varchar(100) NOT NULL,
-  PRIMARY KEY (ID)
-);      
+create table Tricks (
+  id int not null auto_increment,
+  trick varchar(20) not null,
+  redirect varchar(100) not null,
+  primary key(id)
 
-/*  Execute this file from the command line by typing:
- *    mysql -u root < server/schema.sql
- *  to create the database and the tables.*/
-INSERT INTO Tricks ( trick, redirect ) VALUES ('Tre Flip', 'http://www.haha.com' );
-INSERT INTO Tricks ( trick, redirect ) VALUES ('kickflip', 'http://www.ha.com' );
+)

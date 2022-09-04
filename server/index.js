@@ -1,9 +1,12 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-
+const dotenv = require('dotenv');
+dotenv.config();
 var dbQuery = require('../database-mysql');
 
 var app = express();
+
+const PORT = process.env.PORT || 5001;
 
 //global middleware
 app.use(express.static(__dirname + '/../react-client/dist'));
@@ -50,7 +53,7 @@ app.post('/delete', function (req, res) {
   })
 });
 
-app.listen(3000, function() {
-  console.log('listening on port 3000!');
+app.listen(PORT, function() {
+  console.log('listening on port 5001!');
 });
 
